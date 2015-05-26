@@ -2,7 +2,6 @@
 #include <ace/OS_NS_string.h>
 #include <ace/OS_NS_stdlib.h>
 #include <ace/SString.h>
-#include <stdio.h>
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
