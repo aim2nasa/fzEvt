@@ -21,8 +21,6 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 	while (fgets(buffer, sizeof(buffer), pPipe))
 	{
-		//printf(buffer);
-
 		char *p;
 		p = ACE_OS::strtok(buffer, token); /* sec */ if (p == 0) continue;
 		tv_sec = p;
