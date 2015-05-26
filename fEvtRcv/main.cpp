@@ -19,13 +19,9 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 	ACE_TCHAR* token = ACE_TEXT("[].: \r\n");
 
-	ACE_TString tv_sec, tv_usec;
-	ACE_TString device, type;
-	ACE_TString code;
-	ACE_TString value;
+	ACE_TString tv_sec, tv_usec, device, type, code, value;
 
-	timeval evt_time[6];
-	timeval evt_time_temp;
+	timeval evt_time[6], evt_time_temp;
 	std::string evt_code[2];
 	int x1 = -1; int y1 = -1;
 	int x2 = -1; int y2 = -1;
