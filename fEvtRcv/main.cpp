@@ -3,9 +3,6 @@
 #include <ace/OS_NS_stdlib.h>
 #include <ace/SString.h>
 #include <stdio.h>
-#include <iostream>
-
-using namespace std;
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
@@ -43,7 +40,8 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		evt_time_temp.tv_sec = ACE_OS::atoi(tv_sec.c_str());
 		evt_time_temp.tv_usec = ACE_OS::atoi(tv_usec.c_str());
 
-		cout << tv_sec << "." << tv_usec << "," << device << "," << type << "," << code << "," << value << endl;
+		ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) %s.%s %s,%s,%s,%s\n"),
+			tv_sec.c_str(), tv_usec.c_str(), device.c_str(), type.c_str(), code.c_str(), value.c_str()));
 	}
 	feof(pPipe);
 
