@@ -20,7 +20,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_TCHAR* token = ACE_TEXT("[].: \r\n");
 
 	ACE_TString tv_sec, tv_usec, device, type, code, value;
-	timeval evt_time[6], evt_time_temp;
+	timeval evt_time_temp;
 	int x1=-1, x2=-1, y1=-1, y2=-1;
 
 	while (fgets(buffer, sizeof(buffer), pPipe))
