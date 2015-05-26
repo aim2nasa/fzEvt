@@ -34,6 +34,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		code = p;
 		p = ACE_OS::strtok(0, token); /* value */ if (p == 0) continue;
 		value = p;
+
 		evt_time_temp.tv_sec = ACE_OS::atoi(tv_sec.c_str());
 		evt_time_temp.tv_usec = ACE_OS::atoi(tv_usec.c_str());
 
