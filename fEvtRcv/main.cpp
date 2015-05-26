@@ -1,8 +1,8 @@
 #include <ace/Log_Msg.h>
 #include <ace/OS_NS_string.h>
 #include <ace/OS_NS_stdlib.h>
+#include <ace/SString.h>
 #include <stdio.h>
-#include <string>
 #include <iostream>
 
 using namespace std;
@@ -19,10 +19,10 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 
 	ACE_TCHAR* token = ACE_TEXT("[].: \r\n");
 
-	std::string tv_sec, tv_usec;
-	std::string device,type;
-	std::string code;
-	std::string value;
+	ACE_TString tv_sec, tv_usec;
+	ACE_TString device, type;
+	ACE_TString code;
+	ACE_TString value;
 
 	timeval evt_time[6];
 	timeval evt_time_temp;
