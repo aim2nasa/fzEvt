@@ -22,7 +22,6 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	ACE_TString tv_sec, tv_usec, device, type, code, value;
 
 	timeval evt_time[6], evt_time_temp;
-	std::string evt_code[2];
 	int x1 = -1; int y1 = -1;
 	int x2 = -1; int y2 = -1;
 
