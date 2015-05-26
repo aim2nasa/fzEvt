@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pipeTest", "pipeTest\pipeTest.vcxproj", "{05214246-1FB6-4208-BE56-17E4982C4969}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "fEvtRcv", "fEvtRcv\fEvtRcv.vcxproj", "{1BEABC49-85A7-4D36-A5F2-BE1E58C61524}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -15,6 +17,10 @@ Global
 		{05214246-1FB6-4208-BE56-17E4982C4969}.Debug|Win32.Build.0 = Debug|Win32
 		{05214246-1FB6-4208-BE56-17E4982C4969}.Release|Win32.ActiveCfg = Release|Win32
 		{05214246-1FB6-4208-BE56-17E4982C4969}.Release|Win32.Build.0 = Release|Win32
+		{1BEABC49-85A7-4D36-A5F2-BE1E58C61524}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1BEABC49-85A7-4D36-A5F2-BE1E58C61524}.Debug|Win32.Build.0 = Debug|Win32
+		{1BEABC49-85A7-4D36-A5F2-BE1E58C61524}.Release|Win32.ActiveCfg = Release|Win32
+		{1BEABC49-85A7-4D36-A5F2-BE1E58C61524}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
