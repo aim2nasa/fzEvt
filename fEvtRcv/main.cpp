@@ -8,7 +8,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 	char   psBuffer[128];
 	FILE   *pPipe;
 
-	if ((pPipe = _popen("dir c:\\*.*", "rt")) == NULL)
+	if ((pPipe = _popen("adb shell getevent -t -l ", "rt")) == NULL)
 		ACE_ERROR((LM_ERROR, "(%t)\n", "_popen() error", -1));
 
 	while (fgets(psBuffer, 128, pPipe))
