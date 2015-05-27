@@ -93,23 +93,15 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 		{
 			//fprintf(write_fp, "time: %04d%02d%02d,%02d%02d%02d\n", st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
 			/* 이벤트 발생시 단말의 시간, 이벤트 발생 시간 보내줘야 함 */
-#if 1 // debug only
-			printf("EVENT [x1:%d x2:%d (%d) y1:%d y2:%d (%d)]", x1, x2, abs(x2 - x1), y1, y2, abs(y2 - y1));
-#endif
+			ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) EVENT [x1:%d x2:%d (%d) y1:%d y2:%d (%d)]\n"),x1, x2, abs(x2 - x1), y1, y2, abs(y2 - y1)));
+
 			if ((x2 != -1 && y2 != -1) &&
 				(abs(x2 - x1) >= SWIPE_DISTANCE || abs(y2 - y1) >= SWIPE_DISTANCE))
 			{
-#if 1 // debug only
-				printf("** SWIPE EVENT **\n");
-#endif
+				ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) ** Swipe Event **\n")));
 				is_swipe = true;
-			}
-			else
-			{
-#if 1 // debug only
-				printf("** TAP EVENT **\n");
-#endif
-			}
+			}else
+				ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) ** Tap Event **\n")));
 
 			if (is_swipe == false) {
 				fprintf(write_fp, "eventname : TAP\n");
@@ -156,17 +148,13 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 
 			fclose(write_fp);
 
-			//printf("push event!\n");
-			//pipe_send_queue_mutex.lock();
-			{
-				//if (is_swipe == false)
-				//	adi.write_event_file(x1, y1);
-				//else
-				//	adi.write_event_file(x1, y1, x2, y2);
-
-				//pipe_send_queue.push(new pipe_send_info(adi.device_id, "EVENT", file_path));
+			if (is_swipe == false) {
+				//write_event_file(x1, y1);
+				ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) writeEvent(x1:%d,y1:%d) **\n"), x1, y1));
+			}else{
+				//write_event_file(x1, y1, x2, y2);
+				ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) writeEvent(x1:%d,x2:%d,y1:%d,y2:%d) **\n"), x1, x2, y1, y2));
 			}
-			//pipe_send_queue_mutex.unlock();
 			x1 = y1 = x2 = y2 = -1;
 			memset(evt_time, 0, sizeof(evt_time));
 		}
