@@ -41,7 +41,7 @@ int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 		ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) %s.%s %s,%s,%s,%s\n"),
 			tv_sec.c_str(), tv_usec.c_str(), device.c_str(), type.c_str(), code.c_str(), value.c_str()));
 	}
-	feof(pPipe);
+	_pclose(pPipe);
 
 	ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) end of main\n")));
 	ACE_RETURN(0);
