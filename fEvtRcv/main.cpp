@@ -3,6 +3,7 @@
 #include <ace/OS_NS_stdlib.h>
 #include <ace/SString.h>
 
+#define SWIPE_DISTANCE	50
 #define	timersub(tvp, uvp, vvp)	\
 	do {\
 		(vvp)->tv_sec = (tvp)->tv_sec - (uvp)->tv_sec;\
@@ -92,7 +93,6 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 		{
 			//fprintf(write_fp, "time: %04d%02d%02d,%02d%02d%02d\n", st.wYear, st.wMonth, st.wDay, st.wHour, st.wMinute, st.wSecond);
 			/* 이벤트 발생시 단말의 시간, 이벤트 발생 시간 보내줘야 함 */
-#define SWIPE_DISTANCE	50
 #if 1 // debug only
 			printf("EVENT [x1:%d x2:%d (%d) y1:%d y2:%d (%d)]", x1, x2, abs(x2 - x1), y1, y2, abs(y2 - y1));
 #endif
