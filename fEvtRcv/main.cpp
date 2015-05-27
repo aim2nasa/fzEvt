@@ -79,7 +79,8 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 	timeval* evt_time = pTime;
 	timeval& evt_time_temp = *pTempTime;
 
-	if (value == "ffffffff" && x1 != -1 && y1 != -1){
+	if (value == "ffffffff" && x1 != -1 && y1 != -1)
+	{
 		char file_path[512];
 		char save_name[512];
 		SYSTEMTIME st;
@@ -95,9 +96,7 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 			/* 이벤트 발생시 단말의 시간, 이벤트 발생 시간 보내줘야 함 */
 			ACE_DEBUG((LM_INFO, ACE_TEXT("(%t) EVENT [x1:%d x2:%d (%d) y1:%d y2:%d (%d)]\n"),x1, x2, abs(x2 - x1), y1, y2, abs(y2 - y1)));
 
-			if ((x2 != -1 && y2 != -1) &&
-				(abs(x2 - x1) >= SWIPE_DISTANCE || abs(y2 - y1) >= SWIPE_DISTANCE))
-			{
+			if ((x2 != -1 && y2 != -1) && (abs(x2 - x1) >= SWIPE_DISTANCE || abs(y2 - y1) >= SWIPE_DISTANCE)){
 				ACE_DEBUG((LM_DEBUG, ACE_TEXT("(%t) ** Swipe Event **\n")));
 				is_swipe = true;
 			}else
@@ -106,9 +105,7 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 			if (is_swipe == false) {
 				fprintf(write_fp, "eventname : TAP\n");
 				fprintf(write_fp, "eventcount : 4\n");
-			}
-			else
-			{
+			}else{
 				fprintf(write_fp, "eventname : SWIPE\n");
 				fprintf(write_fp, "eventcount : 6\n");
 			}
@@ -131,8 +128,7 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 				fprintf(write_fp, "eventid : 0, 0, 0, 0\n");
 				fprintf(write_fp, "eventnamebyid : %s, %s, %s, %s\n", "DOWN", "X", "Y", "UP");
 				fprintf(write_fp, "eventvaluebyid : %d, %d, %d, %d", 0, x1, y1, 0);
-			}
-			else {
+			}else{
 				fprintf(write_fp, "eventtime : %d, %d, %d, %d, %d, %d\n",
 					(evt_time[0].tv_sec * 1000) + (evt_time[0].tv_usec / 1000) > 0 ? (evt_time[0].tv_sec * 1000) + (evt_time[0].tv_usec / 1000) : 0,
 					(evt_time[1].tv_sec * 1000) + (evt_time[1].tv_usec / 1000) > 0 ? (evt_time[1].tv_sec * 1000) + (evt_time[1].tv_usec / 1000) : 0,
@@ -143,9 +139,7 @@ void AbsMtTrackingId(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& 
 				fprintf(write_fp, "eventid : 0, 0, 0, 0, 0, 0\n");
 				fprintf(write_fp, "eventnamebyid : %s, %s, %s, %s, %s, %s\n", "DOWN", "X", "Y", "X", "Y", "UP");
 				fprintf(write_fp, "eventvaluebyid : %d, %d, %d, %d, %d, %d", 0, x1, y1, x2, y2, 0);
-
 			}
-
 			fclose(write_fp);
 
 			if (is_swipe == false) {
@@ -168,8 +162,7 @@ void AbsMtPositionX(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& y
 	if (x1 == -1){
 		x1 = strtoul(value.c_str(), 0, 16);
 		pTime[1] = *pTempTime;
-	}
-	else {
+	}else {
 		x2 = strtoul(value.c_str(), 0, 16);
 		pTime[4] = *pTempTime;
 	}
@@ -180,8 +173,7 @@ void AbsMtPositionY(ACE_TString& value, bool& is_swipe, int& x1, int& x2, int& y
 	if (y1 == -1) {
 		y1 = strtoul(value.c_str(), 0, 16);
 		pTime[2] = *pTempTime;
-	}
-	else{
+	}else{
 		y2 = strtoul(value.c_str(), 0, 16);
 		pTime[5] = *pTempTime;
 	}
